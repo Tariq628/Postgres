@@ -1,0 +1,111 @@
+{% extends 'base.html' %} {% load static %} {% block content %} {% block csslink %}
+<link rel="stylesheet" href="{% static 'css/manual.css' %}"> {% endblock csslink %}
+<!--begin::Content-->
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::Post card-->
+            <div class="card card-flush shadow-sm">
+                <!--begin::Body-->
+                <form action="#" id="kt_modal_update_user_form">
+                    <div class="card-header">
+                        <h3 class="card-title">User Information</h3>
+                        <div class="card-toolbar">
+                            <!--begin::Search-->
+                            <input type="text" class="form-control form-control-lg form-control-solid px-15" name="search" value="" placeholder="Search by Email address" data-kt-search-element="input" />
+                            <button type="submit" class=" mx-2 btn btn-primary">Search</button>
+                            <!--end::Search-->
+                        </div>
+                    </div>
+                    <div class="card-body py-5">
+                        <div class="table-responsive">
+                            <table class="table table-striped gy-7 gs-7">
+                                <thead>
+                                    <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                                        <th class="min-w-200px">Name</th>
+                                        <th class="min-w-200px">Email</th>
+                                        <th class="min-w-100px">Phone</th>
+                                        <th class="min-w-200px">Start date</th>
+                                        <th class="min-w-200px">Country</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="post d-flex flex-column-fluid mt-5" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::Post card-->
+            <div class="card card-flush shadow-sm">
+                <!--begin::Body-->
+                <form action="#" id="kt_modal_update_user_form2">
+                    <div class="card-header">
+                        <h3 class="card-title">Bundle Information</h3>
+                        <!-- <div class="card-toolbar">
+              
+              <input
+                type="text"
+                class="form-control form-control-lg form-control-solid px-15"
+                name="search"
+                value=""
+                placeholder="Search by Email address"
+                data-kt-search-element="input"
+              />
+              
+            </div> -->
+                    </div>
+                    <div class="card-body py-5">
+                        <div class="row">
+                            <div class="col-md-8 mb-10">
+                                <label for="" class="form-label">Bundles</label>
+                                <select name="searchBundle" class="form-select form-select-solid" data-control="select2" data-placeholder="Select a Bundle" data-allow-clear="true" multiple="multiple">
+                                    <option value="21">Tiger Nixon</option>
+                                    <option value="212">Tariq Ahmed</option>
+                                    <option value="213">Umair Iqbal</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-10">
+                                <label class="form-label">Select Date</label>
+                                <input name="myDate" class="form-control form-control-solid" placeholder="Pick date rage" id="kt_daterangepicker_3" />
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped gy-7 gs-7">
+                                <thead>
+                                    <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                                        <th class="min-w-200px">Bundles</th>
+                                        <th class="min-w-200px">Start date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTableBody2">
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--end::Content-->
+{% endblock %} {% block scriptlinks %}
+<script src="{% static 'js/manualpayments.js' %}"></script>
+{% endblock scriptlinks %}

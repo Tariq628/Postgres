@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'excel',
+                    text: 'Excel',
+                    className: 'exportExcel',
+                    filename: 'Test_Excel',
+                    exportOptions: { modifier: { page: 'all'} }
+                },
+                {
+                    extend: 'csv',
+                    text: 'CSV',
+                    className: 'exportExcel',
+                    filename: 'Test_Csv',
+                    exportOptions: { modifier: { page: 'all'} }
+                },
+                {
+                    extend: 'pdf',
+                    text: 'PDF',
+                    className: 'exportExcel',
+                    filename: 'Test_Pdf',
+                    exportOptions: { modifier: { page: 'all'} }
+                }]
+            });
+ 
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table id="example" class="display nowrap">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mudassar Khan</td>
+                    <td>India</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Austria</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ana Trujillo</td>
+                    <td>France</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Antonio Moreno</td>
+                    <td>Brazil</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Thomas Hardy</td>
+                    <td>Ireland</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Christina Berglund</td>
+                    <td>Italy</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Hanna Moos</td>
+                    <td>Finland</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Laurence Lebihan</td>
+                    <td>Finland</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Elizabeth Lincoln</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Victoria Ashworth</td>
+                    <td>UK</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

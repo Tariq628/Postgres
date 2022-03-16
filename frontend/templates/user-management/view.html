@@ -1,0 +1,375 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
+	<!--begin::Post-->
+	<div class="post d-flex flex-column-fluid" id="kt_post">
+		<!--begin::Container-->
+		<div id="kt_content_container" class="container-xxl">
+			<!--begin::Layout-->
+			<div class="d-flex flex-column flex-lg-row">
+
+				<!--begin::Content-->
+				<div class="flex-lg-row-fluid ms-lg-15">
+					<!--begin:::Tabs-->
+					<ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-bold mb-8">
+						<!--begin:::Tab item-->
+						<li class="nav-item">
+							<a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab"
+								href="#kt_user_view_overview_tab">Edit User</a>
+						</li>
+						<!--end:::Tab item-->
+						<!--begin:::Tab item-->
+						<li class="nav-item">
+							<a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true"
+								data-bs-toggle="tab" href="#kt_user_view_overview_tab_1">Edit Enrollments</a>
+						</li>
+						<!--end:::Tab item-->
+						<!--begin:::Tab item-->
+						<li class="nav-item">
+							<a class="nav-link text-active-primary pb-4" data-kt-countup-tabs="true"
+								data-bs-toggle="tab" href="#kt_user_view_overview_tab_2">Edit Courses</a>
+						</li>
+						<!--end:::Tab item-->
+
+
+					</ul>
+					<!--end:::Tabs-->
+					<!--begin:::Tab content -->
+					<div class="tab-content" id="myTabContent">
+						<!--begin:::Tab pane-1-->
+						<div class="tab-pane fade show active" id="kt_user_view_overview_tab" role="tabpanel">
+							<!--begin::Form-->
+							<div class="modal-content">
+								<!--begin::Form-->
+								<form class="form" action="#" id="edit_user_form">
+									{% csrf_token %}
+									<!--begin::Modal header-->
+									<div class="modal-header" id="kt_modal_update_user_header">
+										<!--begin::Modal title-->
+										<h2 class="fw-bolder">User Details</h2>
+
+										<!--end::Modal title-->
+										<!--begin::Close-->
+										<div class="btn btn-icon btn-sm btn-active-icon-primary"
+											data-kt-users-modal-action="close">
+											<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+											<span class="svg-icon svg-icon-1">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+													viewBox="0 0 24 24" fill="none">
+													<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+														transform="rotate(-45 6 17.3137)" fill="black" />
+													<rect x="7.41422" y="6" width="16" height="2" rx="1"
+														transform="rotate(45 7.41422 6)" fill="black" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->
+										</div>
+										<!--end::Close-->
+									</div>
+									<!--end::Modal header-->
+
+									<!--begin::Modal body-->
+
+									<div class="modal-body py-10 px-lg-17">
+										<!--begin::Scroll-->
+										<!--begin::Scroll-->
+										<div class="d-flex flex-column scroll-y me-n7 pe-7"
+											id="kt_modal_update_user_scroll" data-kt-scroll="true"
+											data-kt-scroll-activate="{default: false, lg: true}"
+											data-kt-scroll-max-height="auto"
+											data-kt-scroll-dependencies="#kt_modal_update_user_header"
+											data-kt-scroll-wrappers="#kt_modal_update_user_scroll"
+											data-kt-scroll-offset="100px">
+
+											<div class="row">
+												<div class="col-md-6 mb-10">
+													<label for="firstName" class="form-label">First
+														Name</label>
+													<input type="text" class="form-control form-control-solid"
+														id="firstName" placeholder="Enter First Name" />
+												</div>
+												<div class="col-md-6 mb-10">
+													<label for="lastName" class="form-label">Last Name</label>
+													<input type="text" class="form-control form-control-solid"
+														id="lastName" placeholder="Enter Last Name" />
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-6 mb-10">
+													<label for="email" class="form-label">Email address</label>
+													<input name="myEmail" type="email" class="form-control form-control-solid"
+														id="email" placeholder="name@example.com" />
+												</div>
+												<div class="col-md-6 mb-10">
+													<label for="country" class="form-label">Country</label>
+													<input type="text" class="form-control form-control-solid"
+														id="country" placeholder="Enter Country" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12 mb-10">
+													<label for="address" class="form-label">Address</label>
+													<input type="text" class="form-control form-control-solid"
+														id="address" placeholder="Enter Address" />
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-6 mb-10">
+													<label for="contact" class="form-label">Contact</label>
+													<br>
+													<input type="tel" class="form-control form-control-solid" name="contact"
+														id="contact" placeholder="Enter Phone"/>
+														<div class="alert alert-info" style="display: none;"></div>
+														<div class="alert alert-error" style="display: none;"></div>
+												</div>
+												<div class="col-md-6 mb-10">
+													<label for="floatingPassword" class="form-label">Reset
+														Password</label>
+													<input type="Password" class="form-control form-control-solid"
+														id="floatingPassword" placeholder="Enter Password" />
+														
+												</div>
+											</div>
+
+										</div>
+
+										<!--end::Scroll-->
+
+										<!--end::Scroll-->
+									</div>
+									<!--end::Modal body-->
+									<!--begin::Modal footer-->
+									<div class="modal-footer flex-center">
+										<!--begin::Button-->
+										<button type="reset" class="btn btn-light me-3"
+											data-kt-users-modal-action="cancel">Discard</button>
+										<!--end::Button-->
+										<!--begin::Button-->
+										<button type="submit" class="btn btn-primary"
+											data-kt-users-modal-action="submit">
+											<span class="indicator-label">Update User</span>
+											<span class="indicator-progress">Please wait...
+												<span
+													class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+										</button>
+										<!--end::Button-->
+									</div>
+									<!--end::Modal footer-->
+								</form>
+								<!--end::Form-->
+							</div>
+							<!--end::Form-->
+
+						</div>
+						<!--end:::Tab pane-1-->
+
+						<!--begin:::Tab pane 2-->
+						<div class="tab-pane fade" id="kt_user_view_overview_tab_1" role="tabpanel">
+
+							<!--begin::Form-->
+							<div class="modal-content">
+								<!--begin::Form-->
+								<form class="form" action="#" id="edit_enrollment_form">
+									{% csrf_token %}
+									<!--begin::Modal header-->
+									<div class="modal-header" id="kt_modal_update_user_header">
+										<!--begin::Modal title-->
+										<h2 class="fw-bolder">Enrollments</h2>
+										<!--end::Modal title-->
+										<!--begin::Close-->
+										<div class="btn btn-icon btn-sm btn-active-icon-primary"
+											data-kt-users-modal-action="close">
+											<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+											<span class="svg-icon svg-icon-1">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+													viewBox="0 0 24 24" fill="none">
+													<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+														transform="rotate(-45 6 17.3137)" fill="black" />
+													<rect x="7.41422" y="6" width="16" height="2" rx="1"
+														transform="rotate(45 7.41422 6)" fill="black" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->
+										</div>
+										<!--end::Close-->
+									</div>
+									<!--end::Modal header-->
+									<!--begin::Modal body-->
+									<div class="modal-body py-10 px-lg-17">
+										<!--begin::Scroll-->
+										<div class="d-flex flex-column scroll-y me-n7 pe-7"
+											id="kt_modal_update_user_scroll" data-kt-scroll="true"
+											data-kt-scroll-activate="{default: false, lg: true}"
+											data-kt-scroll-max-height="auto"
+											data-kt-scroll-dependencies="#kt_modal_update_user_header"
+											data-kt-scroll-wrappers="#kt_modal_update_user_scroll"
+											data-kt-scroll-offset="300px">
+
+											<div class="row">
+												<div class="col-md-8 mb-10">
+													<label for="bundles" class="form-label">Bundles</label>
+													<select id="bundles" class="form-select form-select-solid" data-control="select2"
+														data-placeholder="Select a Bundle" data-allow-clear="true"
+														multiple="multiple">
+														<option></option>
+														<option value="1">Bundle 1</option>
+														<option value="2">Bundle 2</option>
+													</select>
+												</div>
+												<div class="col-md-4 mb-10">
+													<label for="kt_daterangepicker_3" class="form-label">Select Date</label>
+													<input class="form-control form-control-solid"
+														placeholder="Pick a date" id="kt_daterangepicker_3" />
+												</div>
+												
+											</div>
+
+										</div>
+
+										<!--end::Scroll-->
+									</div>
+									<!--end::Modal body-->
+									<!--begin::Modal footer-->
+									<div class="modal-footer flex-center">
+										<!--begin::Button-->
+										<button type="reset" class="btn btn-light me-3"
+											data-kt-users-modal-action="cancel">Discard</button>
+										<!--end::Button-->
+										<!--begin::Button-->
+										<button type="submit" class="btn btn-primary"
+											data-kt-users-modal-action="submit">
+											<span class="indicator-label">Submit</span>
+											<span class="indicator-progress">Please wait...
+												<span
+													class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+										</button>
+										<!--end::Button-->
+									</div>
+									<!--end::Modal footer-->
+								</form>
+								<!--end::Form-->
+							</div>
+							<!--end::Form-->
+							<!--end:::Tab pane-->
+
+						</div>
+						<!--end:::Tab pane-2-->
+
+						<!--begin:::Tab pane 3-->
+						<div class="tab-pane fade" id="kt_user_view_overview_tab_2" role="tabpanel">
+
+							<!--begin::Form-->
+							<div class="modal-content">
+								<!--begin::Form-->
+								<form class="form" action="#" id="edit_courses_form">
+									{% csrf_token %}
+									<!--begin::Modal header-->
+									<div class="modal-header" id="kt_modal_update_user_header">
+										<!--begin::Modal title-->
+										<h2 class="fw-bolder">Enrollments</h2>
+										<!--end::Modal title-->
+										<!--begin::Close-->
+										<div class="btn btn-icon btn-sm btn-active-icon-primary"
+											data-kt-users-modal-action="close">
+											<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+											<span class="svg-icon svg-icon-1">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+													viewBox="0 0 24 24" fill="none">
+													<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+														transform="rotate(-45 6 17.3137)" fill="black" />
+													<rect x="7.41422" y="6" width="16" height="2" rx="1"
+														transform="rotate(45 7.41422 6)" fill="black" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->
+										</div>
+										<!--end::Close-->
+									</div>
+									<!--end::Modal header-->
+									<!--begin::Modal body-->
+									<div class="modal-body py-10 px-lg-17">
+										<!--begin::Scroll-->
+										<div class="d-flex flex-column scroll-y me-n7 pe-7"
+											id="kt_modal_update_user_scroll" data-kt-scroll="true"
+											data-kt-scroll-activate="{default: false, lg: true}"
+											data-kt-scroll-max-height="auto"
+											data-kt-scroll-dependencies="#kt_modal_update_user_header"
+											data-kt-scroll-wrappers="#kt_modal_update_user_scroll"
+											data-kt-scroll-offset="300px">
+
+											<div class="row">
+												<div class="col-md-8 mb-10">
+													<label for="courses" class="form-label">Courses</label>
+													<select id="courses" class="form-select form-select-solid" data-control="select2"
+														data-placeholder="Select a Course" data-allow-clear="true"
+														multiple="multiple">
+														<option value="1">Course 1</option>
+														<option value="2">Course 2</option>
+													</select>
+												</div>
+												<div class="col-md-4 mb-10">
+													<label for="" class="form-label">Select Date</label>
+													<input class="form-control form-control-solid"
+														placeholder="Pick a date" id="kt_daterangepicker_7" />
+												</div>
+											</div>
+
+
+										</div>
+
+										<!--end::Scroll-->
+									</div>
+									<!--end::Modal body-->
+									<!--begin::Modal footer-->
+									<div class="modal-footer flex-center">
+										<!--begin::Button-->
+										<button type="reset" class="btn btn-light me-3"
+											data-kt-users-modal-action="cancel">Discard</button>
+										<!--end::Button-->
+										<!--begin::Button-->
+										<button type="submit" class="btn btn-primary"
+											data-kt-users-modal-action="submit">
+											<span class="indicator-label">Submit</span>
+											<span class="indicator-progress">Please wait...
+												<span
+													class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+										</button>
+										<!--end::Button-->
+									</div>
+									<!--end::Modal footer-->
+								</form>
+								<!--end::Form-->
+							</div>
+							<!--end::Form-->
+							<!--end:::Tab pane-->
+
+						</div>
+						<!--end:::Tab pane-3-->
+
+					</div>
+					<!--end:::Tab content- -->
+					<!--end:::Tab content-->
+				</div>
+				<!--end::Content-->
+			</div>
+			<!--end::Layout-->
+			<!--end::Modals-->
+		</div>
+		<!--end::Container-->
+	</div>
+	<!--end::Post-->
+</div>
+<!--end::Content-->
+
+
+{% endblock %}
+
+{% block scriptlinks %}
+<script src="{% static 'js/edituser.js' %}"></script>
+{% endblock scriptlinks %}
